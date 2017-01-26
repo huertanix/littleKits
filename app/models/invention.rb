@@ -10,4 +10,12 @@ class Invention < ApplicationRecord
   validates :description, :presence => true, :length => { :maximum => 255 }
   validates :user_name, :length => { :maximum => 255 }
   validates :email_address, :length => { :maximum => 255 }
+
+  #validate :must_have_a_bit
+
+  #def must_have_a_bit
+  #  if bit_ids.empty?
+  #    errors.add(:base, 'Must have at least one Bit selected.')
+  #  end
+  #end
 end
