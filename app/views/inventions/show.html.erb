@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= h @invention.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= h @invention.description %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= h @invention.user_name %>
+</p>
+
+<p>
+  <strong>Email Address:</strong>
+  <%= h @invention.email_address %>
+</p>
+
+<p>
+  <strong>Bits Used:</strong>
+  <% unless @invention.bits.empty? %>
+    <ul>
+      <% @invention.bits.each do |bit| %>
+        <li><%= h bit.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
+<p>
+  <strong>Other Materials:</strong>
+  <% unless @invention.other_materials.empty? %>
+    <ul>
+      <% @invention.other_materials.each do |other_material| %>
+        <li><%= h other_material.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_invention_path(@invention) %> |
+<%= link_to 'Back', inventions_path %>

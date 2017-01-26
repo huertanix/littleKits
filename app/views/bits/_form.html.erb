@@ -1,0 +1,27 @@
+<%= form_for(bit) do |f| %>
+  <% if bit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bit.errors.count, "error") %> prohibited this bit from being saved:</h2>
+
+      <ul>
+      <% bit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :invention_id %>
+    <%= f.text_field :invention_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

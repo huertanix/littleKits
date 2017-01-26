@@ -1,0 +1,47 @@
+<%= form_for(invention) do |f| %>
+  <% if invention.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(invention.errors.count, "error") %> prohibited this invention from being saved:</h2>
+
+      <ul>
+      <% invention.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email_address %>
+    <%= f.text_field :email_address %>
+  </div>
+
+  <div class="field">
+    <%= collection_check_boxes(:invention, :bit_ids, Bit.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :other_material_list %>
+    <small>Add any additional materials. Use a space between materials, and use a "-" for materials with spaces in their name.</small>
+    <%= f.text_field :other_material_list, value: f.object.other_material_list.to_s %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
