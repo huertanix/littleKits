@@ -22,3 +22,5 @@ This application requires no additional local services to run. To start the defa
     rails s
 
 Visit http://localhost:3000 to check it out!
+
+NOTE: The User model can safely be ignored since the user_name and email_address attributes were added to the Invention model.
